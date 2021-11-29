@@ -30,7 +30,6 @@ RUN apt-get update \
     && add-apt-repository multiverse \
     && apt-get update \
     && apt-get install -y \
-    sudo \
     curl \
     wget \
     file \
@@ -81,19 +80,20 @@ RUN adduser \
 --gecos "" \
 linuxgsm \
 && usermod -G tty linuxgsm \
-&& echo "linuxgsm ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
 && chown -R linuxgsm:linuxgsm /home/linuxgsm \
 
 ## linuxgsm.sh
 RUN set -ex; \
 mkdir /opt/linuxgsm; \
 chown linuxgsm:linuxgsm /opt/linuxgsm; \
-wget -O /opt/linuxgsm/linuxgsm.sh https://linuxgsm.sh; \
+wget -O /opt/linuxgsm/linuxgsm.sh https://raw.githubusercontent.com/GameServerManagers/LinuxGSM/master/linuxgsm.sh; \
 chmod +x /opt/linuxgsm/linuxgsm.sh
 
 USER linuxgsm
 
 WORKDIR /home/linuxgsm
+
+VOLUME [ "/home/linuxgsm" ]
 
 # need use xterm for LinuxGSM
 ENV TERM=xterm
