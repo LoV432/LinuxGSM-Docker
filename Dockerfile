@@ -100,3 +100,7 @@ ENV TERM=xterm
 
 ## Docker Details
 ENV PATH=$PATH:/home/linuxgsm
+
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["bash","/entrypoint.sh" ]
