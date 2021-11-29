@@ -58,7 +58,7 @@ RUN apt-get update \
 && echo steam steam/license note '' | debconf-set-selections \
 && dpkg --add-architecture i386 \
 && apt-get update -y \
-&& apt-get install -y --no-install-recommends ca-certificates locales steamcmd \
+&& apt-get install -y --no-install-recommends ca-certificates locales steamcmd libsdl2-2.0-0:i386 \
 
 # Install Gamedig https://docs.linuxgsm.com/requirements/gamedig
 && curl -sL https://deb.nodesource.com/setup_16.x | bash - \
