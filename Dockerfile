@@ -54,7 +54,6 @@ RUN adduser \
 --shell /bin/bash \
 --gecos "" \
 linuxgsm \
-&& usermod -G tty linuxgsm \
 && chown -R linuxgsm:linuxgsm /home/linuxgsm \
 
 ## linuxgsm.sh
