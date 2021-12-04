@@ -9,6 +9,7 @@
 ##
 ## If one wants to use a volume for the data directory, which is the home directory
 ## then we must keep a backup copy of the script on local drive
+echo "-----BEGIN-----"
 if [ ! -e ~/linuxgsm.sh ]; then
     echo "Initializing Linuxgsm User Script in New Volume"
     cp /opt/linuxgsm/linuxgsm.sh ./linuxgsm.sh
@@ -19,7 +20,7 @@ fi
 
 # with no command, just spawn a running container suitable for exec's
 if [ $# = 0 ]; then
-    tail -f /dev/null
+    tail -F /home/linuxgsm/log/console/cod4server-console.log # "docker logs -f container-name" will give console realtime output
 else
     # execute the command passed through docker
     "$@"
