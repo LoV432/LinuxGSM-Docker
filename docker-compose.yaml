@@ -1,10 +1,15 @@
+version: '3.3'
 services:
-    linuxgsm:
-        image: gameservermanagers/linuxgsm-docker
-        container_name: lgsm-docker
-        hostname: 'LGSM'
-        user: '750:750'
-        network_mode: host
+    linuxgsm-docker:
+        container_name: cod4
         volumes:
-          - '/path/to/lgsm:/home/linuxgsm'
-        restart: always
+            - 'cod4:/home/linuxgsm'
+        ports:
+            - '28960:28960/udp'
+        network_mode: bridge
+        restart: unless-stopped
+        image: 'lov432/lgsm-cod4-docker:latest'
+
+volumes:
+  cod4:
+    name: cod4
