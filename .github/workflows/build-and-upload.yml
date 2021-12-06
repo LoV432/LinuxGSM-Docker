@@ -3,9 +3,8 @@ name: ci
 on:
   schedule:
     - cron: '0 19 * * 6' # every sunday 00:00 pk time hopefully (timezones are hard k :( )
-  push:
-    branches:
-      - 'develop'
+    
+  workflow_dispatch:
 
 jobs:
   docker:
