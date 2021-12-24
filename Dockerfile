@@ -13,6 +13,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 
 RUN apt-get update \
+    && apt upgrade -y \
     && apt-get install -y \
     curl \
     wget \
