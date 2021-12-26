@@ -13,6 +13,7 @@ if [ -e ~/cod4server* ]; then
     fi
     /home/linuxgsm/cod4server* ul
     /home/linuxgsm/cod4server* r
+    tail -f /dev/null
     #tail -F /home/linuxgsm/log/console/cod4server*-console.log # "docker logs -f container-name" will give console realtime output
 
 else
