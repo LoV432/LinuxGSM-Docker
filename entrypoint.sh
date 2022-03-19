@@ -17,5 +17,5 @@ if [ -e ~/cod4server* ]; then
     #tail -F /home/linuxgsm/log/console/cod4server*-console.log # "docker logs -f container-name" will give console realtime output
 
 else
-    echo "cod4server exec not found k thx bye"
+    tail -f /dev/null
 fi
